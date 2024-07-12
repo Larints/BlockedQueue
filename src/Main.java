@@ -26,6 +26,13 @@ public class Main {
         });
         putThread.start();
         getThread.start();
+
+        try {
+            putThread.join();
+            getThread.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
